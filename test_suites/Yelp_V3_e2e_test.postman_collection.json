@@ -1,0 +1,406 @@
+{
+	"info": {
+		"_postman_id": "1b0b375a-5621-441b-8525-25b02220d7fb",
+		"name": "Yelp_V3_e2e_test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/businesses/search",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2d763795-9e39-4109-9659-ff62af88b8a0",
+						"exec": [
+							" pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});",
+							"tests[\"Echo API Testcase: \"  + pm.variables.get(\"test_case\")]  = true;",
+							"",
+							"",
+							" pm.test(\"response should be okay to process\", function () {",
+							"        pm.response.to.not.be.error;",
+							"        pm.response.to.not.have.jsonBody('error');",
+							" });",
+							"",
+							"   var jsonData = pm.response.json();",
+							"   tests[\"Response has alias\"] = jsonData.businesses[0].alias !== undefined;",
+							"   tests[\"Response has phone\"] = jsonData.businesses[0].phone !== undefined;",
+							"",
+							"pm.environment.set(\"biz_alias\", jsonData.businesses[0].alias);",
+							"pm.environment.set(\"biz_phone\", jsonData.businesses[0].phone);",
+							"",
+							"console.log(\"biz_categories is set to :\");",
+							"console.log(pm.environment.get(\"biz_alias\"));",
+							"console.log(\"biz_phone is set to :\");",
+							"console.log(pm.environment.get(\"biz_phone\"));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{bearerKey}}"
+					}
+				],
+				"url": {
+					"raw": "https://api.yelp.com/v3/businesses/search?term={{search_term}}&latitude=37.786882&longitude=-122.399972",
+					"protocol": "https",
+					"host": [
+						"api",
+						"yelp",
+						"com"
+					],
+					"path": [
+						"v3",
+						"businesses",
+						"search"
+					],
+					"query": [
+						{
+							"key": "term",
+							"value": "{{search_term}}"
+						},
+						{
+							"key": "latitude",
+							"value": "37.786882"
+						},
+						{
+							"key": "longitude",
+							"value": "-122.399972"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/businesses/{{biz_alias}}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ad14a6eb-c339-4d26-9579-39d9a365620f",
+						"exec": [
+							" pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});",
+							"tests[\"Echo API Testcase: \"  + pm.variables.get(\"test_case\")]  = true;",
+							"",
+							"",
+							" pm.test(\"response should be okay to process\", function () {",
+							"        pm.response.to.not.be.error;",
+							"        pm.response.to.not.have.jsonBody('error');",
+							" });",
+							"",
+							"   var jsonData = pm.response.json();",
+							"   tests[\"Response has alias\"] = jsonData.alias !== undefined;",
+							"   tests[\"Response has phone\"] = jsonData.phone !== undefined;",
+							"",
+							"pm.environment.set(\"biz_alias\", jsonData.alias);",
+							"pm.environment.set(\"biz_phone\", jsonData.phone);",
+							"",
+							"console.log(\"biz_categories is set to :\");",
+							"console.log(pm.environment.get(\"biz_alias\"));",
+							"console.log(\"biz_phone is set to :\");",
+							"console.log(pm.environment.get(\"biz_phone\"));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{bearerKey}}"
+					}
+				],
+				"url": {
+					"raw": "https://api.yelp.com/v3/businesses/{{biz_alias}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"yelp",
+						"com"
+					],
+					"path": [
+						"v3",
+						"businesses",
+						"{{biz_alias}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/businesses/{biz_alias}/reviews",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "313123aa-3d66-4c65-a598-6054ff4036ff",
+						"exec": [
+							" pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});",
+							"tests[\"Echo API Testcase: \"  + pm.variables.get(\"test_case\")]  = true;",
+							"",
+							"",
+							" pm.test(\"response should be okay to process\", function () {",
+							"        pm.response.to.not.be.error;",
+							"        pm.response.to.not.have.jsonBody('error');",
+							" });",
+							"",
+							"   var jsonData = pm.response.json();",
+							"   tests[\"Response has review id\"] = jsonData.reviews[0].id !== undefined;",
+							"   tests[\"Response has rating\"] = jsonData.reviews[0].rating !== undefined;",
+							"",
+							"",
+							"console.log(\"biz_categories is set to :\");",
+							"console.log(pm.environment.get(\"biz_alias\"));",
+							"console.log(\"biz_phone is set to :\");",
+							"console.log(pm.environment.get(\"biz_phone\"));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{bearerKey}}"
+					}
+				],
+				"url": {
+					"raw": "https://api.yelp.com/v3/businesses/{{biz_alias}}/reviews",
+					"protocol": "https",
+					"host": [
+						"api",
+						"yelp",
+						"com"
+					],
+					"path": [
+						"v3",
+						"businesses",
+						"{{biz_alias}}",
+						"reviews"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/businesses/search/phone",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1bc8d938-f5ad-4c20-9692-05327663f7c9",
+						"exec": [
+							" pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});",
+							"tests[\"Echo API Testcase: \"  + pm.variables.get(\"test_case\")]  = true;",
+							"",
+							"",
+							" pm.test(\"response should be okay to process\", function () {",
+							"        pm.response.to.not.be.error;",
+							"        pm.response.to.not.have.jsonBody('error');",
+							" });",
+							"",
+							"   var jsonData = pm.response.json();",
+							"   tests[\"Response has alias\"] = jsonData.businesses[0].alias !== undefined;",
+							"   tests[\"Response has phone\"] = jsonData.businesses[0].phone !== undefined;",
+							"",
+							"pm.environment.set(\"biz_alias\", jsonData.businesses[0].alias);",
+							"pm.environment.set(\"biz_phone\", jsonData.businesses[0].phone);",
+							"",
+							"console.log(\"biz_categories is set to :\");",
+							"console.log(pm.environment.get(\"biz_alias\"));",
+							"console.log(\"biz_phone is set to :\");",
+							"console.log(pm.environment.get(\"biz_phone\"));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{bearerKey}}"
+					}
+				],
+				"url": {
+					"raw": "https://api.yelp.com/v3/businesses/search/phone?phone={{biz_phone}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"yelp",
+						"com"
+					],
+					"path": [
+						"v3",
+						"businesses",
+						"search",
+						"phone"
+					],
+					"query": [
+						{
+							"key": "phone",
+							"value": "{{biz_phone}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/transactions/search",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "399854a5-491f-429e-85c6-fb99df2b0829",
+						"exec": [
+							" pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});",
+							"tests[\"Echo API Testcase: \"  + pm.variables.get(\"test_case\")]  = true;",
+							"",
+							"",
+							" pm.test(\"response should be okay to process\", function () {",
+							"        pm.response.to.not.be.error;",
+							"        pm.response.to.not.have.jsonBody('error');",
+							" });",
+							"",
+							"   var jsonData = pm.response.json();",
+							"   tests[\"Response has alias\"] = jsonData.businesses[0].alias !== undefined;",
+							"   tests[\"Response has phone\"] = jsonData.businesses[0].phone !== undefined;",
+							"",
+							"pm.environment.set(\"biz_alias\", jsonData.businesses[0].alias);",
+							"pm.environment.set(\"biz_phone\", jsonData.businesses[0].phone);",
+							"",
+							"console.log(\"biz_categories is set to :\");",
+							"console.log(pm.environment.get(\"biz_alias\"));",
+							"console.log(\"biz_phone is set to :\");",
+							"console.log(pm.environment.get(\"biz_phone\"));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{bearerKey}}"
+					}
+				],
+				"url": {
+					"raw": "https://api.yelp.com/v3/transactions/delivery/search?latitude=37.786882&longitude=-122.399972",
+					"protocol": "https",
+					"host": [
+						"api",
+						"yelp",
+						"com"
+					],
+					"path": [
+						"v3",
+						"transactions",
+						"delivery",
+						"search"
+					],
+					"query": [
+						{
+							"key": "latitude",
+							"value": "37.786882"
+						},
+						{
+							"key": "longitude",
+							"value": "-122.399972"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/autocomplete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7106584e-de61-403e-9f5d-065a2ef154ce",
+						"exec": [
+							" pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});",
+							"tests[\"Echo API Testcase: \"  + pm.variables.get(\"test_case\")]  = true;",
+							"",
+							"",
+							" pm.test(\"response should be okay to process\", function () {",
+							"        pm.response.to.not.be.error;",
+							"        pm.response.to.not.have.jsonBody('error');",
+							" });",
+							"",
+							"   var jsonData = pm.response.json();",
+							"   tests[\"Response has alias\"] = jsonData.categories[0].alias !== undefined;",
+							"   tests[\"Response has title\"] = jsonData.categories[0].title !== undefined;",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{bearerKey}}"
+					}
+				],
+				"url": {
+					"raw": "https://api.yelp.com/v3/autocomplete?text=del&latitude=37.786942&longitude=-122.399643",
+					"protocol": "https",
+					"host": [
+						"api",
+						"yelp",
+						"com"
+					],
+					"path": [
+						"v3",
+						"autocomplete"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "del"
+						},
+						{
+							"key": "latitude",
+							"value": "37.786942"
+						},
+						{
+							"key": "longitude",
+							"value": "-122.399643"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
