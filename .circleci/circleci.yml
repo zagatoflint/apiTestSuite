@@ -1,0 +1,11 @@
+version: 2.1
+orbs:
+  newman: postman/newman@0.0.2
+jobs:
+  newman-collection-run:
+    executor: newman/postman-newman-docker
+    steps:
+      - checkout
+      - newman/newman-run:
+          collection: ./test_suites/Yelp_V3_e2e_test.postman_collection.json
+          environment: ./Yelp.postman_environment.json
