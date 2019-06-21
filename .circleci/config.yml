@@ -9,4 +9,7 @@ jobs:
       - run:
           name: "set keys"
           command: |
-            sed 's/YOUR_YELP_DEVELOPER_KEY/'"${bugusKey}"'/g' ./Yelp.postman_environment.json > ./temp_Yelp.postman_environment.json;cat ./temp_Yelp.postman_environment.json
+            sed 's/YOUR_YELP_DEVELOPER_KEY/'"${yelpBearerKey}"'/g' ./Yelp.postman_environment.json > ./temp_Yelp.postman_environment.json
+      - newman/newman-run:
+            collection: ./test_suites/Yelp_V3_e2e_test.postman_collection.json
+            environment: ./temp_Yelp.postman_environment.json
