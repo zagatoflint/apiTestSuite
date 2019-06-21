@@ -1,11 +1,10 @@
 version: 2.1
-commands:
-  sayhello:
-    description: "A very simple command for demonstration purposes"
-    parameters:
-      to:
-        type: string
-        default: "Hello World"
+orbs:
+  newman: postman/newman@1.0.0
+jobs:
+  newman-collection-run:
+    executor: newman/postman-newman-docker
     steps:
-      - run: echo << parameters.to >>
-
+      - checkout
+      - newman/newman-run:
+          collection: ./collection.json
