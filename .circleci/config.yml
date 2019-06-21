@@ -9,4 +9,4 @@ jobs:
       - run:
           name: "set keys"
           command: |
-            echo $bogusKey
+            echo foo;echo ${bogusKey}; cat Yelp.postman_environment.json
