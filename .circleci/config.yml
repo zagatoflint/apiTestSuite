@@ -7,9 +7,8 @@ jobs:
     steps:
       - checkout
       - run:
-          name: setkeys
-          command:
-            sed 's/YOUR_YELP_DEVELOPER_KEY/${bogusKey}/g' ./Yelp.postman_environment.json > ./temp_Yelp.postman_environment.json
+          name: "set keys"
+          command: sed 's/YOUR_YELP_DEVELOPER_KEY/${bogusKey}/g' ./Yelp.postman_environment.json > ./temp_Yelp.postman_environment.json
       - newman/newman-run:
           collection: ./test_suites/Yelp_V3_e2e_test.postman_collection.json
           environment: ./temp_Yelp.postman_environment.json
