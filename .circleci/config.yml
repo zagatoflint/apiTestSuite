@@ -8,4 +8,4 @@ jobs:
       - checkout
       - run:
           name: "set keys"
-          command: echo $bogusKey;sed 's/YOUR_YELP_DEVELOPER_KEY/$bogusKey'/g' ./Yelp.postman_environment.json > ./temp_Yelp.postman_environment.json;cat ./temp_Yelp.postman_environment.json
+          command: echo $bogusKey;sed 's/YOUR_YELP_DEVELOPER_KEY/$bogusKey/g' ./Yelp.postman_environment.json > ./temp_Yelp.postman_environment.json;cat ./temp_Yelp.postman_environment.json
