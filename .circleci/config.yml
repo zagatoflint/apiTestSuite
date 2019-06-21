@@ -9,4 +9,4 @@ jobs:
       - run:
           name: "set keys"
           command: |
-            echo foo;echo $ENVVAR; cat Yelp.postman_environment.json
+            command: sed 's/YOUR_YELP_DEVELOPER_KEY/$ENVVAR/g' ./Yelp.postman_environment.json > ./temp_Yelp.postman_environment.json
