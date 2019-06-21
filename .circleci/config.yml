@@ -1,11 +1,11 @@
 version: 2.1
-orbs:
-  newman: postman/newman@0.0.2
-jobs:
-  newman-collection-run:
-    executor: newman/postman-newman-docker
+commands:
+  sayhello:
+    description: "A very simple command for demonstration purposes"
+    parameters:
+      to:
+        type: string
+        default: "Hello World"
     steps:
-      - checkout
-      - run:
-          name: "set keys"
-          command: sed 's/YOUR_YELP_DEVELOPER_KEY/${bogusKey}/g' ./Yelp.postman_environment.json > ./temp_Yelp.postman_environment.json
+      - run: echo << parameters.to >>
+
