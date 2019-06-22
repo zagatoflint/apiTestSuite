@@ -16,9 +16,9 @@ The end-to-end test suite demos:
 
 # Tests in Postman
 
-Test scripts are easily added in the Postman App:  [Adding Postman Tests](https://learning.getpostman.com/docs/postman/scripts/test_scripts/)
+Test scripts are easily added in the Postman App:  [https://learning.getpostman.com/docs/postman/scripts/test_scripts/]()
  
-The assertion library in postman is based on chaiJS: [http://chaijs.com/api/bdd/]([http://chaijs.com/api/bdd/)
+The assertion library in postman is based on chaiJS: [http://chaijs.com/api/bdd/]()
  
 
 Import this suite into postman to edit and see the tests:
@@ -26,6 +26,7 @@ Import this suite into postman to edit and see the tests:
     apiTestSuite/test_suites/Yelp_V3_e2e_test.postman_collection.json
 
 How to import:
+
 ![Import Collections](https://github.com/zagatoflint/apiTestSuite/blob/master/Docs/importPostmanCollection.gif?raw=true "Import")
 
 
