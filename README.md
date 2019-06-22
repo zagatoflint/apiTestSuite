@@ -16,9 +16,9 @@ The end-to-end test suite demos:
 
 # Tests in Postman
 
-Test scripts are easily added in the Postman App [https://learning.getpostman.com/docs/postman/scripts/test_scripts/][]
+Test scripts are easily added in the Postman App:  [Adding Postman Tests](https://learning.getpostman.com/docs/postman/scripts/test_scripts/)
  
-The assertion library in postman is based on: [http://chaijs.com/api/bdd/][]
+The assertion library in postman is based on chaiJS: [http://chaijs.com/api/bdd/]([http://chaijs.com/api/bdd/)
  
 
 Import this suite into postman to edit and see the tests:
@@ -57,17 +57,17 @@ Replace _"YOUR_YELP_DEVELOPER_KEY"_ with your yelp apikey.
 
 You can execute the collection from within postman to debug.
 
-The docs are here: [https://learning.getpostman.com/docs/postman/collection_runs/starting_a_collection_run/][]
+The docs are here: [https://learning.getpostman.com/docs/postman/collection_runs/starting_a_collection_run/]()
  
 
 ## Running from command line
 
 ### Install newman
 
-You can run newman from docker as documented: [https://blog.getpostman.com/2015/08/07/using-the-newman-docker-image-in-windows/][]
+You can run newman from docker as documented: [https://blog.getpostman.com/2015/08/07/using-the-newman-docker-image-in-windows/]()
 (Helpful if you are running on Windows)
 
-Or install via npm and run natively as documented: [https://learning.getpostman.com/docs/postman/collection_runs/command_line_integration_with_newman/#___gatsby][]
+Or install via npm and run natively as documented: [https://learning.getpostman.com/docs/postman/collection_runs/command_line_integration_with_newman/#___gatsby]()
 
 
 Once newman is installed execute the following script to run the suite:
@@ -75,15 +75,16 @@ Once newman is installed execute the following script to run the suite:
     ./runTest.sh
 
 
-
 ####Reference Documentation
 
-[]: https://learning.getpostman.com/docs/postman/collection_runs/starting_a_collection_run/
+[https://learning.getpostman.com/docs/postman/collection_runs/starting_a_collection_run/]()
 
-[]: http://chaijs.com/api/bdd/
+[http://chaijs.com/api/bdd/]()
 
-[]: https://learning.getpostman.com/docs/postman/scripts/test_scripts/
+[https://learning.getpostman.com/docs/postman/scripts/test_scripts/]()
 
-[]: https://blog.getpostman.com/2015/08/07/using-the-newman-docker-image-in-windows/
+[https://blog.getpostman.com/2015/08/07/using-the-newman-docker-image-in-windows/]()
 
-[]: https://learning.getpostman.com/docs/postman/collection_runs/command_line_integration_with_newman/#___gatsby
+[https://learning.getpostman.com/docs/postman/collection_runs/command_line_integration_with_newman/#___gatsby]()
+
+
