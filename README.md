@@ -20,7 +20,6 @@ Test scripts are easily added in the Postman App:  [https://learning.getpostman.
  
 The assertion library in postman is based on chaiJS: [http://chaijs.com/api/bdd/]()
  
-
 Import this suite into postman to edit and see the tests:
 
     apiTestSuite/test_suites/Yelp_V3_e2e_test.postman_collection.json
@@ -51,12 +50,11 @@ Here is a partial snippet of a test in postman:
 You will need to get a Yelp apikey to run this example, signup for one from here:
 https://www.yelp.com/developers/documentation/v3/authentication
 
-Update this environment file with your apikey: 
+Update this environment file with your apikey, replace _"YOUR_YELP_DEVELOPER_KEY"_ with your yelp apikey.
 
 
     Yelp.postman_environment.json
 
-Replace _"YOUR_YELP_DEVELOPER_KEY"_ with your yelp apikey.
 
 ## Running the collection from within postman:
 
@@ -65,7 +63,9 @@ You can execute the collection from within postman to debug.
 The docs are here: [https://learning.getpostman.com/docs/postman/collection_runs/starting_a_collection_run/]()
  
 
-## Running from command line
+## Running the collection  from command line
+
+Once you have the collection working in Postman you can try running form command line.
 
 ### Install newman
 
@@ -73,7 +73,6 @@ You can run newman from docker as documented: [https://blog.getpostman.com/2015/
 (Helpful if you are running on Windows)
 
 Or install via npm and run natively as documented: [https://learning.getpostman.com/docs/postman/collection_runs/command_line_integration_with_newman/#___gatsby]()
-
 
 Once newman is installed execute the following script to run the suite:
 
