@@ -25,6 +25,10 @@ Import this suite into postman to edit and see the tests:
 
     apiTestSuite/test_suites/Yelp_V3_e2e_test.postman_collection.json
 
+How to import:
+![Import Collections](https://github.com/zagatoflint/apiTestSuite/blob/master/Docs/importPostmanCollection.gif?raw=true "Import")
+
+
 Here is a partial snippet of a test in postman:
 
    
