@@ -17,3 +17,7 @@ workflows:
   workflow:
     jobs:
       - build
+scheduled-test-run:
+  triggers:
+    - schedule:
+        cron: 20 * * * *
