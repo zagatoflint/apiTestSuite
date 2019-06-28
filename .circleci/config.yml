@@ -13,3 +13,7 @@ jobs:
       - newman/newman-run:
             collection: ./test_suites/Yelp_V3_e2e_test.postman_collection.json
             environment: ./temp_Yelp.postman_environment.json
+    scheduled-test-run:
+      triggers:
+        - schedule:
+            cron: 5 * * * *
