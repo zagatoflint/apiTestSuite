@@ -1,19 +1,19 @@
-version: 2.1
-orbs:
-  newman: postman/newman@0.0.2
+version: 2
 jobs:
   build:
-    executor: newman/postman-newman-docker
+    docker:
+      - image: postman/newman:4.4.1
     steps:
       - checkout
       - run:
-          name: "set keys"
+          name: set keys
           command: |
             sed 's/YOUR_YELP_DEVELOPER_KEY/'"${yelpBearerKey}"'/g' ./Yelp.postman_environment.json > ./temp_Yelp.postman_environment.json
-      - newman/newman-run:
-            collection: ./test_suites/Yelp_V3_e2e_test.postman_collection.json
-            environment: ./temp_Yelp.postman_environment.json
-    scheduled-test-run:
-      triggers:
-        - schedule:
-            cron: 5 * * * *
+      - run:
+          command: "newman run ./test_suites/Yelp_V3_e2e_test.postman_collection.json\
+          \ --environment ./temp_Yelp.postman_environment.json              \n"
+workflows:
+  version: 2
+  workflow:
+    jobs:
+      - build
