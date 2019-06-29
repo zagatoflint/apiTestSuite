@@ -12,12 +12,11 @@ jobs:
       - run:
           command: "newman run ./test_suites/Yelp_V3_e2e_test.postman_collection.json\
           \ --environment ./temp_Yelp.postman_environment.json              \n"
-workflows:
-  version: 2
-  workflow:
-    jobs:
-      - build
-scheduled-test-run:
-  triggers:
-    - schedule:
-        cron: 20 * * * *
+  nightly:
+    triggers: #use the triggers key to indicate a scheduled build
+      - schedule:
+          cron: "0 43 * * *" # use cron syntax to set the schedule
+          filters:
+            branches:
+              only:
+                - master
